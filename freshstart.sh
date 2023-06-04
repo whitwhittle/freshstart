@@ -23,11 +23,11 @@ chown -R "$username:$username" "/home/$username"
 
 # install some essential programs
 #
-nala install git htop vim unzip wget alacritty -y
+nala install git htop vim unzip wget -y
 
 # install some non-essentials
 #
-nala install variety flameshot neofetch -y
+nala install variety flameshot fish neofetch -y
 
 # get fonts
 #
@@ -99,6 +99,16 @@ make install
 # Grab dotfiles
 #
 git clone https://github.com/whitwhittle/dotfiles /home/whit/.config
+
+
+# Install Starship
+#
+curl -sS https://starship.rs/install.sh | sh
+
+# Once Starship has been installed, need to add to config files;
+#
+echo "eval "$(starship init bash)"" >> /home/$username/.bashrc
+echo "starship init fish | source" >> /home/$username/.config/fish/config.fish
 
 
 
